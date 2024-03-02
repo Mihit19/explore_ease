@@ -4,6 +4,8 @@ import 'package:explore_ease/utils/constants/sizes.dart';
 import 'package:explore_ease/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../utils/constants/text_strings.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -25,7 +27,7 @@ class LoginScreen extends StatelessWidget {
                       image: AssetImage(
                           dark ? EEImage.lightAppLogo : EEImage.darkAppLogo)
                   ),
-                  Text(EEText.LoginTitle)
+                  Text(EETexts.loginTitle)
                 ],
               )
             ],
