@@ -1,9 +1,11 @@
 import 'package:explore_ease/common/styles/spacing_styles.dart';
-import 'package:explore_ease/utils/constants/image_strings.dart';
+import 'package:explore_ease/features/authentication/screens/login/widget/login_form.dart';
+import 'package:explore_ease/features/authentication/screens/login/widget/login_header.dart';
 import 'package:explore_ease/utils/constants/sizes.dart';
-import 'package:explore_ease/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
-
+import 'package:get/get.dart';
+import '../../../../common/widgets/login_signup/form_divider.dart';
+import '../../../../common/widgets/login_signup/social_button.dart';
 import '../../../../utils/constants/text_strings.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -11,7 +13,6 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = EEHelperFunctions.isDarkMode(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -19,17 +20,15 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               /// Logo, Title &Sub-Title
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image(
-                      height: 150,
-                      image: AssetImage(
-                          dark ? EEImage.lightAppLogo : EEImage.darkAppLogo)
-                  ),
-                  Text(EETexts.loginTitle)
-                ],
-              )
+              const EELoginHeader(),
+
+              /// Form
+              const EELoginForm(),
+              /// Divider
+              EEFormDivider(dividerText: EETexts.orSignInWith.capitalize!),
+              const SizedBox(height: EESizes.spaceBtwSections,),
+              /// Footer
+              const EESocialButton()
             ],
           ),
         ),
@@ -37,3 +36,8 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
