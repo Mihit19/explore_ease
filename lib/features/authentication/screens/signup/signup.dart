@@ -1,15 +1,11 @@
 import 'package:explore_ease/common/widgets/login_signup/form_divider.dart';
 import 'package:explore_ease/common/widgets/login_signup/social_button.dart';
-import 'package:explore_ease/features/authentication/screens/login/login.dart';
 import 'package:explore_ease/features/authentication/screens/signup/widgets/signup_form.dart';
-import 'package:explore_ease/utils/constants/colors.dart';
 import 'package:explore_ease/utils/constants/sizes.dart';
 import 'package:explore_ease/utils/constants/text_strings.dart';
-import 'package:explore_ease/utils/helpers/helper_functions.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
+
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
