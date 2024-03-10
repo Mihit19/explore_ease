@@ -29,9 +29,8 @@ class OnBoardingController extends GetxController{
     }
   }
 
-  /// Update Current Index and jump to last page
+  /// Jump directly to login page
   void skipPage(){
-    currentPageIndex.value = 2;
-    pageController.jumpToPage(2);
+    Get.offAll(const LoginScreen());
   }
 }

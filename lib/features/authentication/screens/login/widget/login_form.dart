@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
+import '../../signup/signup.dart';
 
 
 class EELoginForm extends StatelessWidget {
@@ -52,7 +54,7 @@ class EELoginForm extends StatelessWidget {
             SizedBox(width: double.infinity,child: ElevatedButton(onPressed: (){}, child: const Text(EETexts.signIn))),
             const SizedBox(height: EESizes.spaceBtwItems,),
             /// create account button
-            SizedBox(width: double.infinity,child: OutlinedButton(onPressed: (){}, child: const Text(EETexts.createAccount))),
+            SizedBox(width: double.infinity,child: OutlinedButton(onPressed: () => Get.to(() => SignupScreen()), child: const Text(EETexts.createAccount))),
           ],
         ),
       ),
