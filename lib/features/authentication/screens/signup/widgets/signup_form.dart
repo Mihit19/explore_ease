@@ -1,10 +1,10 @@
+import 'package:explore_ease/features/authentication/screens/signup/verify_email.dart';
 import 'package:explore_ease/features/authentication/screens/signup/widgets/terms_conditions_checkbox.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
-import '../../login/login.dart';
 
 class EESignupForm extends StatelessWidget {
   const EESignupForm({
@@ -92,7 +92,7 @@ class EESignupForm extends StatelessWidget {
           const EETermsAndConditionCheckBox(),
           const SizedBox(height: EESizes.spaceBtwSections,),
           ///create account Button
-          SizedBox(width: double.infinity,child: ElevatedButton(onPressed: () => Get.to(() => const LoginScreen()), child: const Text(EETexts.createAccount)),)
+          SizedBox(width: double.infinity,child: ElevatedButton(onPressed: () => Get.to(() => const VerifyEmailScreen()), child: const Text(EETexts.createAccount)),)
         ],
       ),
     );

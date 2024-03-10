@@ -43,6 +43,7 @@ flutter:
     - assets/icons/
     - assets/images/on_boarding_images/
     - assets/logos/
+    - assets/images/email_verification/
 
   #--------------------LOCAL ASSETS-----------------------#
   fonts:
