@@ -16,7 +16,7 @@ class EETexts{
   static const String loginSubTitle = "Your Next Adventure Awaits Behind This Door";
 
   // Home
-  static const String homeAppbarTitle = "It's a good day to travel";
+  static const String homeAppbarTitle = "Good day to travel";
   static const String homeAppbarSubTitle = "Mihit Kumar";
 
   // Authentication Form text
@@ -53,4 +53,7 @@ class EETexts{
   static const String emailNotReceivedMessage="Didn't get the email check your junk/spam or resend it.";
   static const String yourAccountCreatedTitle="Your account is successfully created";
   static const String yourAccountCreatedSubTitle="Welcome to your Ultimate planning destination: Your Account is Created, Unleash the Joy of Seamless and Organized Planning";
+  static const String eContinue="Continue";
+  static const String submit="Submit";
+  static const String done="Done";
 }

@@ -16,5 +16,6 @@ class EEImage{
   //email verification
   static const String verifyEmail = 'assets/images/email_verification/verify_email.png';
   static const String verificationSuccess = 'assets/images/email_verification/verification_success.png';
+  static const String emailSent = 'assets/images/email_verification/techny-receiving-a-letter-or-email.gif';
 
 }

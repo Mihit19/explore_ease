@@ -1,6 +1,8 @@
+import 'package:explore_ease/features/authentication/screens/password_configuration/forgot_password.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import '../../../../../navigation_menu.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import '../../signup/signup.dart';
@@ -45,12 +47,12 @@ class EELoginForm extends StatelessWidget {
                   ],
                 ),
                 /// Forget Password
-                TextButton(onPressed: (){}, child: const Text(EETexts.forgetPassword))
+                TextButton(onPressed: () => Get.off(() => const ForgetPassword()), child: const Text(EETexts.forgetPassword))
               ],
             ),
             const SizedBox(height: EESizes.spaceBtwSections),
             /// sign in button
-            SizedBox(width: double.infinity,child: ElevatedButton(onPressed: (){}, child: const Text(EETexts.signIn))),
+            SizedBox(width: double.infinity,child: ElevatedButton(onPressed: () => Get.to(() => const NavigationMenu()), child: const Text(EETexts.signIn))),
             const SizedBox(height: EESizes.spaceBtwItems,),
             /// create account button
             SizedBox(width: double.infinity,child: OutlinedButton(onPressed: () => Get.to(() => const SignupScreen()), child: const Text(EETexts.createAccount))),
