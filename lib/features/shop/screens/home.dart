@@ -25,8 +25,8 @@ class HomeScreen extends StatelessWidget {
 
                   /// searchbar
                   EESearchContainer(
-                    text: 'Search the World',
-                    icon: Iconsax.global_search,
+                    text: 'Search the WORLD!',
+                    icon: Iconsax.search_normal_1,
                   ),
                   SizedBox(height: EESizes.spaceBtwSections),
 
