@@ -7,32 +7,36 @@ import '../../../../utils/helpers/helper_functions.dart';
 
 class EESearchContainer extends StatelessWidget {
   const EESearchContainer({
-    super.key, required this.text, this.icon, this.showBackground = true, this.showBorder=true,
+    super.key, required this.text, this.icon, this.showBackground = true, this.showBorder=true, this.onTap,
   });
 
   final String text;
   final IconData? icon;
   final bool showBackground, showBorder;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     final dark = EEHelperFunctions.isDarkMode(context);
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: EESizes.defaultSpace),
-      child: Container(
-        width: EEDeviceUtils.getScreenWidth(context),
-        padding: const EdgeInsets.all(EESizes.md),
-        decoration: BoxDecoration(
-          color: showBackground? dark ? EEColors.dark:EEColors.light : Colors.transparent,
-          borderRadius: BorderRadius.circular(EESizes.cardRadiusLg),
-          border: showBorder ? Border.all(color: dark ? EEColors.dark:EEColors.light):null,
-        ),
-        child: Row(
-          children: [
-            Icon(icon, color: EEColors.darkerGrey,),
-            const SizedBox(width: EESizes.spaceBtwItems,),
-            Text(text, style: Theme.of(context).textTheme.bodySmall!.apply(color: EEColors.darkGrey)),
-          ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: EESizes.defaultSpace),
+        child: Container(
+          width: EEDeviceUtils.getScreenWidth(context),
+          padding: const EdgeInsets.all(EESizes.md),
+          decoration: BoxDecoration(
+            color: showBackground? dark ? EEColors.dark:EEColors.light : Colors.transparent,
+            borderRadius: BorderRadius.circular(EESizes.cardRadiusLg),
+            border: showBorder ? Border.all(color: dark ? EEColors.dark:EEColors.light):null,
+          ),
+          child: Row(
+            children: [
+              Icon(icon, color: EEColors.darkerGrey,),
+              const SizedBox(width: EESizes.spaceBtwItems,),
+              Text(text, style: Theme.of(context).textTheme.bodySmall!.apply(color: EEColors.darkGrey)),
+            ],
+          ),
         ),
       ),
     );
