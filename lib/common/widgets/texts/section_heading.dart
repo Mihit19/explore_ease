@@ -6,7 +6,7 @@ class EESectionHeading extends StatelessWidget {
     this.textColor,
     this.showActionButton = true,
     required this.title,
-    required this.buttonTitle,
+    this.buttonTitle='View all',
     this.onPressed,
   });
 
@@ -18,6 +18,7 @@ class EESectionHeading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
           title,

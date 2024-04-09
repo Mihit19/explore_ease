@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../../../common/widgets/image_texts/image_text.dart';
-import '../../../../utils/constants/image_strings.dart';
+import '../../../../../common/widgets/image_texts/image_text.dart';
+import '../../../../../utils/constants/image_strings.dart';
+
 
 class EEHomeCategories extends StatelessWidget {
   const EEHomeCategories({

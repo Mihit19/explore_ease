@@ -1,25 +1,28 @@
-import 'package:explore_ease/features/shop/screens/widgets/home_appbar.dart';
-import 'package:explore_ease/features/shop/screens/widgets/home_categories.dart';
-import 'package:explore_ease/features/shop/screens/widgets/promo_slider.dart';
+
+import 'package:explore_ease/features/shop/screens/home/widgets/home_appbar.dart';
+import 'package:explore_ease/features/shop/screens/home/widgets/home_categories.dart';
+import 'package:explore_ease/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:explore_ease/utils/constants/image_strings.dart';
 import 'package:explore_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import '../../../common/widgets/custom_shape/container/primary_header_container.dart';
-import '../../../common/widgets/custom_shape/container/search_container.dart';
-import '../../../common/widgets/texts/section_heading.dart';
+import '../../../../common/widgets/custom_shape/container/primary_header_container.dart';
+import '../../../../common/widgets/custom_shape/container/search_container.dart';
+import '../../../../common/widgets/layouts/grid_layout.dart';
+import '../../../../common/widgets/products/product_cards/product_card_vertical.dart';
+import '../../../../common/widgets/texts/section_heading.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             ///Header
-            EEPrimaryHeaderContainer(
+            const EEPrimaryHeaderContainer(
               child: Column(
                 children: [
                   /// Appbar
@@ -42,7 +45,6 @@ class HomeScreen extends StatelessWidget {
                         EESectionHeading(
                           title: 'Popular Categories',
                           showActionButton: true,
-                          buttonTitle: 'View all',
                           textColor: Colors.white,
                         ),
                         SizedBox(height: EESizes.spaceBtwItems),
@@ -56,8 +58,20 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(EESizes.defaultSpace),
-              child: EEPromoSlider(banners: [EEImage.banner1,EEImage.banner2,EEImage.banner3],),
+              padding: const EdgeInsets.all(EESizes.defaultSpace),
+              child: Column(
+                children: [
+                  const EEPromoSlider(banners: [
+                    EEImage.banner1,
+                    EEImage.banner2,
+                    EEImage.banner3
+                  ]),
+                  const SizedBox(height: EESizes.spaceBtwItems),
+                  EESectionHeading(title: 'Popular Landmarks', onPressed: (){}),
+                  const SizedBox(height: EESizes.spaceBtwItems),
+                  EEGridLayout(itemCount: 8,itemBuilder: (_, index) => const EEProductCardVertical(),),
+                ],
+              ),
             )
           ],
         ),
@@ -65,5 +79,4 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
 

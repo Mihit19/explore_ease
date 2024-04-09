@@ -31,5 +31,30 @@ class EEImage{
   static const String banner2 = 'assets/images/banners/banner2.png';
   static const String banner3 = 'assets/images/banners/banner3.png';
 
+  //landmarks
+  static const String landmark1 = 'assets/images/landmarks/landmark1.png';
+  static const String landmark2 = 'assets/images/landmarks/landmark2.png';
+  static const String landmark3 = 'assets/images/landmarks/landmark3.png';
+  static const String landmark4 = 'assets/images/landmarks/landmark4.png';
+  static const String landmark5 = 'assets/images/landmarks/landmark5.png';
+  static const String landmark6 = 'assets/images/landmarks/landmark6.png';
+  static const String landmark7 = 'assets/images/landmarks/landmark7.png';
+  static const String landmark8 = 'assets/images/landmarks/landmark8.png';
+  static const String landmark9 = 'assets/images/landmarks/landmark9.png';
+  static const String landmark10 = 'assets/images/landmarks/landmark10.png';
+  static const String landmark11 = 'assets/images/landmarks/landmark11.png';
+  static const String landmark12 = 'assets/images/landmarks/landmark12.png';
+  static const String landmark13 = 'assets/images/landmarks/landmark13.png';
+  static const String landmark14 = 'assets/images/landmarks/landmark14.png';
+  static const String landmark15 = 'assets/images/landmarks/landmark15.png';
+  static const String landmark16 = 'assets/images/landmarks/landmark16.png';
+  static const String landmark17 = 'assets/images/landmarks/landmark17.png';
+  static const String landmark18 = 'assets/images/landmarks/landmark18.png';
+  static const String landmark19 = 'assets/images/landmarks/landmark19.png';
+  static const String landmark20 = 'assets/images/landmarks/landmark20.png';
+  static const String landmark21 = 'assets/images/landmarks/landmark21.png';
 
+
+  //brands
+  static const String tajIcon = 'assets/images/brands/tajIcon.png';
 }

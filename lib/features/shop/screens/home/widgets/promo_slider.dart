@@ -2,10 +2,11 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:explore_ease/features/shop/controllers/home_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../../common/widgets/custom_shape/container/circular_container.dart';
-import '../../../../common/widgets/images/EE_rounded_image.dart';
-import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/sizes.dart';
+import '../../../../../common/widgets/custom_shape/container/circular_container.dart';
+import '../../../../../common/widgets/images/EE_rounded_image.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/sizes.dart';
+
 
 class EEPromoSlider extends StatelessWidget {
   const EEPromoSlider({
