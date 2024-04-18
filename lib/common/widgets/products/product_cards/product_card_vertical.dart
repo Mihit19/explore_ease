@@ -1,10 +1,12 @@
 import 'package:explore_ease/common/styles/shadows.dart';
 import 'package:explore_ease/common/widgets/custom_shape/container/rounded_container.dart';
 import 'package:explore_ease/common/widgets/images/EE_rounded_image.dart';
+import 'package:explore_ease/features/shop/screens/landmark%20details/landmark_detail.dart';
 import 'package:explore_ease/utils/constants/colors.dart';
 import 'package:explore_ease/utils/constants/image_strings.dart';
 import 'package:explore_ease/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../icons/EE_circular_icon.dart';
@@ -19,7 +21,7 @@ class EEProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool dark = EEHelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: (){},
+      onTap: () => Get.to(() => const LandmarkDetailScreen()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -35,15 +37,25 @@ class EEProductCardVertical extends StatelessWidget {
               height: 180,
               padding: const EdgeInsets.all(EESizes.sm),
               backgroundColor: dark ? EEColors.dark : EEColors.light,
-              child: const Stack(
+              child: Stack(
                 children: [
 
                   ///thumbnail image
-                  EERoundedImage(
+                  const EERoundedImage(
                       imageUrl: EEImage.landmark1, applyImageRadius: true),
+                  /// discount tag
+                  Positioned(
+                      top: 12,
+                      child: EERoundedContainer(
+                        radius: EESizes.sm,
+                        backgroundColor: EEColors.secondary.withOpacity(0.8),
+                        padding: const EdgeInsets.symmetric(horizontal: EESizes.sm, vertical: EESizes.xs),
+                        child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: EEColors.black)),
+                      )
+                  ),
 
                   /// favourite icon button
-                  Positioned(
+                  const Positioned(
                       top: 0,
                       right: 0,
                       child: EECircularIcon(

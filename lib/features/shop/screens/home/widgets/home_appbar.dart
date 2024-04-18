@@ -22,7 +22,7 @@ class EEHomeAppBar extends StatelessWidget {
       ],
     ),
       actions: [
-        EECartCounterIcon(onPressed: () => Get.to(() => const FavouriteScreen()), iconColor: EEColors.white,)
+        EECartCounterIcon(onPressed: (){}, iconColor: EEColors.white,)
       ],
     );
   }
