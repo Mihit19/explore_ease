@@ -18,23 +18,20 @@ class EEPrimaryHeaderContainer extends StatelessWidget {
       child: Container(
         color: EEColors.primary,
         padding: const EdgeInsets.only(bottom: 0),
-        child: SizedBox(
-          height: 400,
-          child: Stack(
-            children: [
-              Positioned(
-                  top: -150,
-                  right: -250,
-                  child: EECircularContainer(
-                      backgroundColor: EEColors.textWhite.withOpacity(0.1))),
-              Positioned(
-                  top: 100,
-                  right: -300,
-                  child: EECircularContainer(
-                      backgroundColor: EEColors.textWhite.withOpacity(0.1))),
-              child,
-            ],
-          ),
+        child: Stack(
+          children: [
+            Positioned(
+                top: -150,
+                right: -250,
+                child: EECircularContainer(
+                    backgroundColor: EEColors.textWhite.withOpacity(0.1))),
+            Positioned(
+                top: 100,
+                right: -300,
+                child: EECircularContainer(
+                    backgroundColor: EEColors.textWhite.withOpacity(0.1))),
+            child,
+          ],
         ),
       ),
     );

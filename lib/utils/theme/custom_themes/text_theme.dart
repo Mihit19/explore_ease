@@ -19,6 +19,8 @@ class EETextTheme{
 
     labelLarge: const TextStyle().copyWith(fontSize: 12.0, fontWeight: FontWeight.normal, color: Colors.black),
     labelMedium: const TextStyle().copyWith(fontSize: 12.0, fontWeight: FontWeight.normal, color: Colors.black.withOpacity(0.5)),
+    labelSmall: const TextStyle().copyWith(fontSize: 8.0, fontWeight: FontWeight.normal, color: Colors.white.withOpacity(0.5)),
+
   );
   static TextTheme darkTextTheme = TextTheme(
       headlineLarge: const TextStyle().copyWith(fontSize: 32.0, fontWeight: FontWeight.bold, color: Colors.white),
@@ -35,5 +37,6 @@ class EETextTheme{
 
       labelLarge: const TextStyle().copyWith(fontSize: 12.0, fontWeight: FontWeight.normal, color: Colors.white),
       labelMedium: const TextStyle().copyWith(fontSize: 12.0, fontWeight: FontWeight.normal, color: Colors.white.withOpacity(0.5)),
+      labelSmall: const TextStyle().copyWith(fontSize: 8.0, fontWeight: FontWeight.normal, color: Colors.white.withOpacity(0.5)),
   );
 }

@@ -1,5 +1,4 @@
 import 'package:explore_ease/common/styles/shadows.dart';
-import 'package:explore_ease/common/widgets/custom_shape/container/circular_container.dart';
 import 'package:explore_ease/common/widgets/custom_shape/container/rounded_container.dart';
 import 'package:explore_ease/common/widgets/images/EE_rounded_image.dart';
 import 'package:explore_ease/utils/constants/colors.dart';
@@ -9,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../icons/EE_circular_icon.dart';
+import '../../texts/brand_title_verified_icon.dart';
 import '../../texts/landmark_price_text.dart';
 import '../../texts/product_title_text.dart';
 
@@ -56,27 +56,15 @@ class EEProductCardVertical extends StatelessWidget {
             const SizedBox(height: EESizes.spaceBtwItems / 2),
 
             ///Details
-            Padding(
-                padding: const EdgeInsets.only(left: EESizes.sm),
+            const Padding(
+                padding: EdgeInsets.only(left: EESizes.sm),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const EEProductTitleText(
+                    EEProductTitleText(
                       title: 'Hotel in Goa', smallSize: true,),
-                    const SizedBox(height: EESizes.spaceBtwItems / 2),
-                    Row(
-                      children: [
-                        Text('Hotel', overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: Theme
-                              .of(context)
-                              .textTheme
-                              .labelMedium,),
-                        const SizedBox(width: EESizes.xs),
-                        const Icon(Iconsax.verify5, color: EEColors.primary,
-                          size: EESizes.iconXs,)
-                      ],
-                    ),
+                    SizedBox(height: EESizes.spaceBtwItems / 2),
+                    EEBrandTitleVerifiedIcon(title: 'hotel',),
                   ],
                 ),
             ),
@@ -114,5 +102,6 @@ class EEProductCardVertical extends StatelessWidget {
     );
   }
 }
+
 
 

@@ -54,6 +54,9 @@ class EEImage{
   static const String landmark20 = 'assets/images/landmarks/landmark20.png';
   static const String landmark21 = 'assets/images/landmarks/landmark21.png';
 
+  //user
+  static const String user = 'assets/images/user/user.png';
+
 
   //brands
   static const String tajIcon = 'assets/images/brands/tajIcon.png';
