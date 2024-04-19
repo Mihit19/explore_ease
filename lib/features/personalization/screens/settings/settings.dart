@@ -3,6 +3,7 @@ import 'package:explore_ease/common/widgets/custom_shape/container/primary_heade
 import 'package:explore_ease/common/widgets/list%20tiles/settings_menu_tile.dart';
 import 'package:explore_ease/common/widgets/texts/section_heading.dart';
 import 'package:explore_ease/features/authentication/screens/login/login.dart';
+import 'package:explore_ease/features/shop/screens/itineraries/itinerary.dart';
 import 'package:explore_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -53,9 +54,11 @@ class SettingScreen extends StatelessWidget {
                   const EESettingsMenuTile(icon: Iconsax.shopping_cart,
                       title: 'My Cart',
                       subTitle: 'Add, remove products and move to checkout'),
-                  const EESettingsMenuTile(icon: Iconsax.bag_tick,
+                  EESettingsMenuTile(icon: Iconsax.bag_tick,
                       title: 'My Itineraries',
-                      subTitle: 'Previously made itineraries'),
+                      subTitle: 'Previously made itineraries',
+                      onTap: () => Get.to(()=> const ItineraryScreen())
+                  ),
                   const EESettingsMenuTile(icon: Iconsax.notification,
                       title: 'Notifications',
                       subTitle: 'Set any kind of notification message'),

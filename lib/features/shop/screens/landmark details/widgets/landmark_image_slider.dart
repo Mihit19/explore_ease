@@ -42,7 +42,7 @@ class EELandmarkImageSlider extends StatelessWidget {
               bottom: 30,
               left: EESizes.defaultSpace,
               child: SizedBox(
-                height: 80,
+                height: 70,
                 child: ListView.separated(
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,

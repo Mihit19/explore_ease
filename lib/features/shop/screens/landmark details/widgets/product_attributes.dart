@@ -5,7 +5,8 @@ import 'package:explore_ease/common/widgets/texts/section_heading.dart';
 import 'package:explore_ease/utils/constants/colors.dart';
 import 'package:explore_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import '../../../../utils/helpers/helper_functions.dart';
+import '../../../../../common/widgets/chips/choice_chip.dart';
+import '../../../../../utils/helpers/helper_functions.dart';
 
 class EELandmarkAttributes extends StatelessWidget {
   const EELandmarkAttributes({super.key});
@@ -36,7 +37,7 @@ class EELandmarkAttributes extends StatelessWidget {
                               .textTheme
                               .titleSmall!
                               .apply(decoration: TextDecoration.lineThrough)),
-                      const SizedBox(width: EESizes.spaceBtwItems/1.5),
+                      const SizedBox(width: EESizes.spaceBtwItems / 1.5),
 
                       ///sale price
                       const EELandmarkPriceText(price: '5,250')
@@ -47,20 +48,49 @@ class EELandmarkAttributes extends StatelessWidget {
 
               /// variation description
               const EEProductTitleText(
-                title: 'This is the description of the landmark variation and it can go upto max 4 lines',
+                title:
+                    'This is the description of the landmark variation and it can go upto max 4 lines',
                 smallSize: true,
                 maxLine: 4,
               )
             ],
           ),
         ),
-        const SizedBox(height: EESizes.spaceBtwItems),
+        const SizedBox(height: EESizes.spaceBtwItems/2.5),
 
         /// attributes
         Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+          const EESectionHeading(title: 'Rooms'),
+          Wrap(
+            spacing: 10,
+            children: [
+              EEChoiceChip(text: 'Superior', selected: true, onSelected: (value){}),
+              EEChoiceChip(text: 'Deluxe', selected: false,onSelected: (value){}),
+              EEChoiceChip(text: 'Suite', selected: false,onSelected: (value){}),
+              EEChoiceChip(text: 'Junior Suite', selected: false,onSelected: (value){}),
+              EEChoiceChip(text: 'TwinXA', selected: false,onSelected: (value){}),
+              EEChoiceChip(text: 'Double', selected: false,onSelected: (value){}),
+            ],
+          ),
 
+        ]
+        ),
+
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+          const EESectionHeading(title: 'View'),
+          Wrap(
+              children: [
+                EEChoiceChip(text: 'Pool View', selected: true, onSelected: (value){}),
+              ],
+            ),
+        ],
         )
       ],
     );
   }
 }
+

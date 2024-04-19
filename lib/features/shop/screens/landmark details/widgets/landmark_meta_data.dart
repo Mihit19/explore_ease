@@ -39,7 +39,7 @@ class EELandmarkMetaData extends StatelessWidget {
         ),
         const SizedBox(height: EESizes.spaceBtwItems/1.5),
         ///title
-        const EEProductTitleText(title: 'Taj Hotel'),
+        const EEProductTitleText(title: 'Taj Exotica Resort & Spa'),
         const SizedBox(height: EESizes.spaceBtwItems/2.5),
         /// state
         Row(

@@ -1,6 +1,4 @@
-import 'package:explore_ease/features/shop/screens/wishlist/wishlist.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import '../../../../../common/widgets/appbar/appbar.dart';
 import '../../../../../common/widgets/products/cart/cart_menu_icon.dart';
 import '../../../../../utils/constants/colors.dart';
@@ -22,7 +20,7 @@ class EEHomeAppBar extends StatelessWidget {
       ],
     ),
       actions: [
-        EECartCounterIcon(onPressed: (){}, iconColor: EEColors.white,)
+        EECartCounterIcon(onPressed: (){}, iconColor: EEColors.white,counterBgColor: EEColors.black,counterTextColor: EEColors.white)
       ],
     );
   }

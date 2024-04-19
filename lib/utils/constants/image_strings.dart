@@ -57,6 +57,11 @@ class EEImage{
   //user
   static const String user = 'assets/images/user/user.png';
 
+  //reviewers
+  static const String profile1 = 'assets/images/reviewers/profile_image1.png';
+  static const String profile2 = 'assets/images/reviewers/profile_image2.png';
+  static const String profile3 = 'assets/images/reviewers/profile_image3.png';
+
 
   //brands
   static const String tajIcon = 'assets/images/brands/tajIcon.png';
