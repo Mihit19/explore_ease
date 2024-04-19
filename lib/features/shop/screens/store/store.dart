@@ -22,7 +22,7 @@ class Store extends StatelessWidget {
         appBar: EEAppBar(
           title:
               Text('Store', style: Theme.of(context).textTheme.headlineMedium),
-          actions: [EECartCounterIcon(onPressed: () {})],
+          actions: [EECartCounterIcon(onPressed: () {},iconColor: EEColors.white,counterBgColor: EEColors.black,counterTextColor: EEColors.white)],
         ),
         body: NestedScrollView(
             headerSliverBuilder: (_, innerBoxIsScrolled) {

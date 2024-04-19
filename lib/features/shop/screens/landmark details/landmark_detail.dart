@@ -6,7 +6,6 @@ import 'package:explore_ease/features/shop/screens/landmark%20details/widgets/la
 import 'package:explore_ease/features/shop/screens/landmark%20details/widgets/landmark_meta_data.dart';
 import 'package:explore_ease/features/shop/screens/landmark%20details/widgets/rating_share.dart';
 import 'package:explore_ease/utils/constants/sizes.dart';
-import 'package:explore_ease/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -18,7 +17,6 @@ class LandmarkDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = EEHelperFunctions.isDarkMode(context);
     return Scaffold(
       bottomNavigationBar: const EEBottomAddToCart(),
       body: SingleChildScrollView(
