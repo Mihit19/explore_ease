@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "672032021608",
+    "project_id": "exploreease-app",
+    "storage_bucket": "exploreease-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672032021608:android:2b9f30b3cafcb8ea006fdd",
+        "android_client_info": {
+          "package_name": "com.mrmihitkumar.explore_ease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672032021608-i2n2qa66l0bc15jh1kq2f9clt0jdv5g1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mrmihitkumar.explore_ease",
+            "certificate_hash": "2d39865654e4b41f810fcc0f698c86f668d728f8"
+          }
+        },
+        {
+          "client_id": "672032021608-ubm23b1euhfe4sfuaucf5vbgpjq50o35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrf2QoF6S4z1Y22LRAzI4sQlhouMYMAMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672032021608-t0odm65es7tn74fbkn53m1m32us72f7f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "672032021608-qamjqj5pafqb6qeulggg98aaneb55l02.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mrmihitkumar.exploreEase"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
