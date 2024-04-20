@@ -89,7 +89,7 @@ class EEProductCardVertical extends StatelessWidget {
                 ///price
                 const Padding(
                   padding: EdgeInsets.only(left: EESizes.sm),
-                  child: EELandmarkPriceText(price: '5k-10k',),
+                  child: Flexible(child: EELandmarkPriceText(price: '5,000-10,000',)),
                 ),
                 Container(
                   decoration: const BoxDecoration(

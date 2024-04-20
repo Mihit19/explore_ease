@@ -1,4 +1,6 @@
+import 'package:explore_ease/features/shop/screens/sub_category/sub_categories.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../../common/widgets/image_texts/image_text.dart';
 import '../../../../../utils/constants/image_strings.dart';
 
@@ -17,7 +19,7 @@ class EEHomeCategories extends StatelessWidget {
         itemCount: 6,
         scrollDirection: Axis.horizontal,
         itemBuilder: (_, index) {
-          return TVerticalImageText(image: EEImage.hotel,title: 'Hotels', onTap: (){},);
+          return TVerticalImageText(image: EEImage.hotel,title: 'Hotels', onTap: ()=> Get.to(()=> const SubCategoriesScreen()),);
         },
       ),
     );
