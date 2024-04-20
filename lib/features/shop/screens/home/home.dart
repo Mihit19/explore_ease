@@ -1,10 +1,12 @@
 
+import 'package:explore_ease/features/shop/screens/all_landmarks/all_landmarks.dart';
 import 'package:explore_ease/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:explore_ease/features/shop/screens/home/widgets/home_categories.dart';
 import 'package:explore_ease/features/shop/screens/home/widgets/promo_slider.dart';
 import 'package:explore_ease/utils/constants/image_strings.dart';
 import 'package:explore_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../common/widgets/custom_shape/container/primary_header_container.dart';
 import '../../../../common/widgets/custom_shape/container/search_container.dart';
@@ -68,7 +70,7 @@ class HomeScreen extends StatelessWidget {
                     EEImage.banner3
                   ]),
                   const SizedBox(height: EESizes.spaceBtwItems),
-                  EESectionHeading(title: 'Popular Landmarks', onPressed: (){}),
+                  EESectionHeading(title: 'Popular Landmarks', onPressed: () => Get.to(()=> const AllLandmarks())),
                   const SizedBox(height: EESizes.spaceBtwItems),
                   EEGridLayout(itemCount: 8,itemBuilder: (_, index) => const EEProductCardVertical(),),
                 ],

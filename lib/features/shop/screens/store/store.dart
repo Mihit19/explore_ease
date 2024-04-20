@@ -4,10 +4,12 @@ import 'package:explore_ease/common/widgets/layouts/grid_layout.dart';
 import 'package:explore_ease/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:explore_ease/common/widgets/products/product_cards/brand_card.dart';
 import 'package:explore_ease/common/widgets/texts/section_heading.dart';
+import 'package:explore_ease/features/shop/screens/brand/all_brands.dart';
 import 'package:explore_ease/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:explore_ease/utils/constants/sizes.dart';
 import 'package:explore_ease/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../../common/widgets/appbar/tabbar.dart';
 import '../../../../utils/constants/colors.dart';
 
@@ -51,8 +53,7 @@ class Store extends StatelessWidget {
                           const SizedBox(height: EESizes.spaceBtwItems),
 
                           ///featured brands
-                          EESectionHeading(
-                              title: 'Featured States', onPressed: () {}),
+                          EESectionHeading(title: 'Featured States', onPressed: () => Get.to(()=> const AllBrandsScreen())),
                           const SizedBox(height: EESizes.spaceBtwItems / 1.5),
 
                           EEGridLayout(
