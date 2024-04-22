@@ -1,12 +1,12 @@
+import 'package:explore_ease/features/authentication/controllers/login/login_controller.dart';
 import 'package:explore_ease/features/authentication/screens/password_configuration/forgot_password.dart';
+import 'package:explore_ease/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import '../../../../../navigation_menu.dart';
 import '../../../../../utils/constants/sizes.dart';
 import '../../../../../utils/constants/text_strings.dart';
 import '../../signup/signup.dart';
-
 
 class EELoginForm extends StatelessWidget {
   const EELoginForm({
@@ -15,25 +15,44 @@ class EELoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Form(
+      key: controller.loginFormKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: EESizes.spaceBtwSections),
         child: Column(
           children: [
             /// Email
             TextFormField(
+              controller: controller.email,
+              validator: (value) => EEValidator.validateEmail(value),
               decoration: const InputDecoration(
                   prefixIcon: Icon(Iconsax.direct_right),
                   labelText: EETexts.email),
             ),
-            const SizedBox(height: EESizes.spaceBtwInputFields,),
-            /// Password
-            TextFormField(
-              decoration: const InputDecoration(
-                  prefixIcon: Icon(Iconsax.password_check),
-                  labelText: EETexts.password, suffixIcon: Icon(Iconsax.eye_slash)),
+            const SizedBox(
+              height: EESizes.spaceBtwInputFields,
             ),
-            const SizedBox(height: EESizes.spaceBtwInputFields/2),
+
+            /// Password
+            Obx(
+              () => TextFormField(
+                controller: controller.password,
+                validator: (value) => EEValidator.validatePassword(value),
+                obscureText: controller.hidePassword.value,
+                decoration: InputDecoration(
+                  labelText: EETexts.password,
+                  prefixIcon: const Icon(Iconsax.password_check),
+                  suffixIcon: IconButton(
+                      onPressed: () => controller.hidePassword.value =
+                          !controller.hidePassword.value,
+                      icon: Icon(controller.hidePassword.value
+                          ? Iconsax.eye_slash
+                          : Iconsax.eye)),
+                ),
+              ),
+            ),
+            const SizedBox(height: EESizes.spaceBtwInputFields / 2),
 
             /// Remember Me & Forget Password
             Row(
@@ -42,24 +61,43 @@ class EELoginForm extends StatelessWidget {
                 /// Remember Me
                 Row(
                   children: [
-                    Checkbox(value: true, onChanged: (value){}),
+                    Obx(
+                      () => Checkbox(
+                          value: controller.rememberMe.value,
+                          onChanged: (value) => controller.rememberMe.value =
+                              !controller.rememberMe.value),
+                    ),
                     const Text(EETexts.rememberMe),
                   ],
                 ),
+
                 /// Forget Password
-                TextButton(onPressed: () => Get.off(() => const ForgetPassword()), child: const Text(EETexts.forgetPassword))
+                TextButton(
+                    onPressed: () => Get.off(() => const ForgetPassword()),
+                    child: const Text(EETexts.forgetPassword))
               ],
             ),
             const SizedBox(height: EESizes.spaceBtwSections),
+
             /// sign in button
-            SizedBox(width: double.infinity,child: ElevatedButton(onPressed: () => Get.to(() => const NavigationMenu()), child: const Text(EETexts.signIn))),
-            const SizedBox(height: EESizes.spaceBtwItems,),
+            SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                    onPressed: () => controller.emailAndPasswordSignIn(),
+                    child: const Text(EETexts.signIn))),
+            const SizedBox(
+              height: EESizes.spaceBtwItems,
+            ),
+
             /// create account button
-            SizedBox(width: double.infinity,child: OutlinedButton(onPressed: () => Get.to(() => const SignupScreen()), child: const Text(EETexts.createAccount))),
+            SizedBox(
+                width: double.infinity,
+                child: OutlinedButton(
+                    onPressed: () => Get.to(() => const SignupScreen()),
+                    child: const Text(EETexts.createAccount))),
           ],
         ),
       ),
     );
   }
 }
-

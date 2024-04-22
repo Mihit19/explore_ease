@@ -14,9 +14,11 @@ class EEImage{
   static const String onBoardingImage3 = 'assets/images/on_boarding_images/bouncy-to-do-in-progress-and-done-columns-of-the-kanban-board.gif';
 
   //email verification
+  static const String processingAnimation = 'assets/images/email_verification/Animation - 1713766937075.json';
   static const String verifyEmail = 'assets/images/email_verification/verify_email.png';
   static const String verificationSuccess = 'assets/images/email_verification/verification_success.png';
   static const String emailSent = 'assets/images/email_verification/techny-receiving-a-letter-or-email.gif';
+  static const String emailVerified = 'assets/images/email_verification/Animation - 1713766937075.json';
 
   //Categories
   static const String adventure = 'assets/images/categories/adventure.png';

@@ -1,4 +1,5 @@
-import 'package:explore_ease/features/authentication/screens/onboarding/onboarding.dart';
+import 'package:explore_ease/bindings/general_bindings.dart';
+import 'package:explore_ease/utils/constants/colors.dart';
 import 'package:explore_ease/utils/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,7 +13,13 @@ class App extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: EEAppTheme.lightTheme,
       darkTheme: EEAppTheme.darkTheme,
-      home: const OnBoardingScreen(),
+      initialBinding: GeneralBindings(),
+      home: const Scaffold(
+        backgroundColor: EEColors.primary,
+        body: Center(
+          child: CircularProgressIndicator(color: EEColors.white),
+        ),
+      ),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:explore_ease/common/widgets/layouts/grid_layout.dart';
 import 'package:explore_ease/common/widgets/products/cart/cart_menu_icon.dart';
 import 'package:explore_ease/common/widgets/products/product_cards/brand_card.dart';
 import 'package:explore_ease/common/widgets/texts/section_heading.dart';
+import 'package:explore_ease/features/shop/controllers/category_controller.dart';
 import 'package:explore_ease/features/shop/screens/brand/all_brands.dart';
 import 'package:explore_ease/features/shop/screens/store/widgets/category_tab.dart';
 import 'package:explore_ease/utils/constants/sizes.dart';
@@ -18,8 +19,9 @@ class Store extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
     return DefaultTabController(
-      length: 6,
+      length: categories.length,
       child: Scaffold(
         appBar: EEAppBar(
           title:
@@ -67,25 +69,16 @@ class Store extends StatelessWidget {
                         ],
                       ),
                     ),
-                    bottom: const EETabBar(tabs: [
-                      Tab(child: Text('Hotels')),
-                      Tab(child: Text('Restaurants')),
-                      Tab(child: Text('Adventure')),
-                      Tab(child: Text('Malls')),
-                      Tab(child: Text('Monuments')),
-                      Tab(child: Text('Beaches')),
-                    ])),
+                    bottom: EETabBar(
+                        tabs: categories.map((category) => Tab(
+                          child: Text(category.name),
+                        )).toList()
+                    )
+                ),
               ];
             },
-            body: const TabBarView(
-              children: [
-                EECategoryTab(),
-                EECategoryTab(),
-                EECategoryTab(),
-                EECategoryTab(),
-                EECategoryTab(),
-                EECategoryTab(),
-              ],
+            body: TabBarView(
+              children: categories.map((category) => EECategoryTab(category: category)).toList(),
             )),
       ),
     );

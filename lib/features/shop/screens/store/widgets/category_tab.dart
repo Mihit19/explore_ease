@@ -1,6 +1,7 @@
 import 'package:explore_ease/common/widgets/layouts/grid_layout.dart';
 import 'package:explore_ease/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:explore_ease/common/widgets/texts/section_heading.dart';
+import 'package:explore_ease/features/shop/models/category_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../common/widgets/products/product_cards/brand_show_case.dart';
@@ -8,7 +9,9 @@ import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class EECategoryTab extends StatelessWidget {
-  const EECategoryTab({super.key});
+  const EECategoryTab({super.key, required this.category});
+
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {

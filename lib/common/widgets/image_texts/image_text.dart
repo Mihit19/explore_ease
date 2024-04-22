@@ -1,9 +1,7 @@
+import 'package:explore_ease/common/widgets/images/EE_circular_image.dart';
 import 'package:flutter/material.dart';
-
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
-import '../../../utils/helpers/helper_functions.dart';
-
 
 class TVerticalImageText extends StatelessWidget {
   const TVerticalImageText({
@@ -11,18 +9,19 @@ class TVerticalImageText extends StatelessWidget {
     required this.image,
     required this.title,
     this.textColor = EEColors.white,
-    this.backgroundColor = true,
+    this.backgroundColor,
     this.onTap,
+    this.isNetworkImage = true,
   });
 
   final String image, title;
   final Color textColor;
-  final bool backgroundColor;
+  final Color? backgroundColor;
+  final bool isNetworkImage;
   final void Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    final dark = EEHelperFunctions.isDarkMode(context);
     return GestureDetector(
       onTap: onTap,
       child: Padding(
@@ -30,16 +29,12 @@ class TVerticalImageText extends StatelessWidget {
         child: Column(
           children: [
             /// Circular icon
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(EESizes.sm),
-              decoration: BoxDecoration(
-                  color: backgroundColor ? (dark? EEColors.black : EEColors.white) : null,
-                  borderRadius: BorderRadius.circular(100)),
-              child: Center(
-                child: Image(image: AssetImage(image), fit: BoxFit.cover),
-              ),
+            EECircularImage(
+              image: image,
+              fit: BoxFit.fitWidth,
+              padding: EESizes.sm * 1.4,
+              isNetworkImage: isNetworkImage,
+              backgroundColor: backgroundColor,
             ),
             const SizedBox(
               height: EESizes.spaceBtwItems / 2,
