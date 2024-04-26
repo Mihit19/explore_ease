@@ -11,12 +11,17 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 
+import '../../models/product_model.dart';
+
 
 class LandmarkDetailScreen extends StatelessWidget {
-  const LandmarkDetailScreen({super.key});
+  const LandmarkDetailScreen({super.key, required this.landmark});
+
+  final LandmarkModel landmark;
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       bottomNavigationBar: const EEBottomAddToCart(),
       body: SingleChildScrollView(

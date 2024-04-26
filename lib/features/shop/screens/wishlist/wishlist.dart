@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../../models/product_model.dart';
 
 class FavouriteScreen extends StatelessWidget {
   const FavouriteScreen({super.key});
@@ -25,7 +26,7 @@ class FavouriteScreen extends StatelessWidget {
           padding: const EdgeInsets.all(EESizes.defaultSpace),
           child: Column(
             children: [
-              EEGridLayout(itemCount: 12, itemBuilder: (_,index) => const EEProductCardVertical())
+              EEGridLayout(itemCount: 12, itemBuilder: (_,index) => EEProductCardVertical(landmark: LandmarkModel.empty()))
             ],
           ),
         ),

@@ -1,3 +1,4 @@
+import 'package:explore_ease/features/shop/models/product_model.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -30,7 +31,7 @@ class EESortableLandmarks extends StatelessWidget {
         const SizedBox(height: EESizes.spaceBtwSections),
 
         ///products
-        EEGridLayout(itemCount: 8, itemBuilder: (_,index)=> const EEProductCardVertical()),
+        EEGridLayout(itemCount: 8, itemBuilder: (_,index)=> EEProductCardVertical(landmark: LandmarkModel.empty())),
       ],
     );
   }

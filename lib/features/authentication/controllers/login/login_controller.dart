@@ -22,9 +22,11 @@ class LoginController extends GetxController{
 
   @override
   void onInit() {
-    email.text = localStorage.read('REMEMBER_ME_EMAIL');
-    password.text = localStorage.read('REMEMBER_ME_PASSWORD');
     super.onInit();
+    final savedEmail = localStorage.read('REMEMBER_ME_EMAIL');
+    final savedPassword = localStorage.read('REMEMBER_ME_PASSWORD');
+    if (savedEmail != null) email.text = savedEmail;
+    if (savedPassword != null) password.text = savedPassword;
   }
 
   Future<void> emailAndPasswordSignIn() async {
@@ -45,7 +47,6 @@ class LoginController extends GetxController{
         EEFullScreenLoader.stopLoading();
         return;}
 
-      // privacy policy check
       if (rememberMe.value) {
         localStorage.write('REMEMBER_ME_EMAIL', email.text.trim());
         localStorage.write('REMEMBER_ME_PASSWORD', password.text.trim());

@@ -64,7 +64,7 @@ class UserModel {
           id: document.id,
           username: data['Username'] ??'',
           email: data['Email'] ??'',
-          firstName: data['FistName'] ??'',
+          firstName: data['FirstName'] ??'',
           lastName: data['LastName'] ??'',
           phoneNumber: data['PhoneNumber'] ??'',
           profilePicture: data['ProfilePicture'] ??'');

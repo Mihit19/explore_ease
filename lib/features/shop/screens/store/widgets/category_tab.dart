@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import '../../../../../common/widgets/products/product_cards/brand_show_case.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
+import '../../../models/product_model.dart';
 
 class EECategoryTab extends StatelessWidget {
   const EECategoryTab({super.key, required this.category});
@@ -28,7 +29,7 @@ class EECategoryTab extends StatelessWidget {
             EESectionHeading(title: 'you might like', onPressed: (){}),
             const SizedBox(height: EESizes.spaceBtwItems),
 
-            EEGridLayout(itemCount: 4, itemBuilder: (_,index) => const EEProductCardVertical())
+            EEGridLayout(itemCount: 4, itemBuilder: (_,index) => EEProductCardVertical(landmark: LandmarkModel.empty()))
 
           ],
         ),

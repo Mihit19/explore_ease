@@ -47,7 +47,7 @@ class EETexts{
   static const String forgetPasswordTitle="Forget password";
   static const String forgetPasswordSubTitle="Don't worry sometimes people can forget too, enter your email and we will send you a password reset link.";
   static const String changeYourPasswordTitle="Password Reset Email Sent";
-  static const String changeYourPasswordSubTitle="Your acccount security is Our Priority! We've sent you a secure link to safely change your password and keep your account protected.";
+  static const String changeYourPasswordSubTitle="Your account security is Our Priority! We've sent you a secure link to safely change your password and keep your account protected.";
   static const String confirmEmailTitle="Verify your email address!";
   static const String confirmEmailSubTitle="Congratulations! Your account Awaits: Verify your Email to start planning and experience a sea of options.";
   static const String emailNotReceivedMessage="Didn't get the email check your junk/spam or resend it.";
