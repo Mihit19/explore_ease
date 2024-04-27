@@ -6,7 +6,7 @@ import '../../../../common/widgets/loader/loader.dart';
 import '../../../../data/repositories/authentication/authentication_repository.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/popups/full_screen_loader.dart';
-import '../signup/network_manager.dart';
+import '../../../../utils/helpers/network_manager.dart';
 
 class LoginController extends GetxController{
 

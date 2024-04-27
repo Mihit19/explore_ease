@@ -1,6 +1,6 @@
+import 'package:explore_ease/features/shop/models/state_model.dart';
 import 'package:flutter/material.dart';
 import '../../../../utils/constants/enums.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../custom_shape/container/rounded_container.dart';
 import '../../images/EE_circular_image.dart';
@@ -8,11 +8,12 @@ import '../../texts/brand_title_verified_icon.dart';
 
 class EEBrandCard extends StatelessWidget {
   const EEBrandCard({
-    super.key, required this.showBorder, this.onTap,
+    super.key, required this.showBorder, this.onTap, required this.state,
   });
 
   final bool showBorder;
   final void Function()? onTap;
+  final StateModel state;
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +26,10 @@ class EEBrandCard extends StatelessWidget {
         child: Row(
           children: [
             ///Icon
-            const Flexible(
+            Flexible(
               child: EECircularImage(
-                isNetworkImage: false,
-                image: EEImage.tajIcon,
+                isNetworkImage: true,
+                image: state.image,
                 backgroundColor: Colors.transparent,
               ),
             ),
@@ -41,11 +42,11 @@ class EEBrandCard extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const EEBrandTitleVerifiedIcon(
-                    title: 'Goa',
+                  EEBrandTitleVerifiedIcon(
+                    title: state.name,
                     brandTextSize: TextSizes.large,
                   ),
-                  Text('100 landmarks',
+                  Text('${state.landmarksCount ?? 0} landmarks',
                       overflow: TextOverflow.ellipsis,
                       style: Theme.of(context)
                           .textTheme

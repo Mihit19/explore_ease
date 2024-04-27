@@ -3,11 +3,15 @@ import 'package:explore_ease/data/repositories/categories/category_repository.da
 import 'package:explore_ease/features/shop/models/category_model.dart';
 import 'package:get/get.dart';
 
+import '../../../data/repositories/product/product_repository.dart';
+import '../models/product_model.dart';
+
 class CategoryController extends GetxController {
   static CategoryController get instance => Get.find();
 
   final isLoading = false.obs;
   final _categoryRepository = Get.put(CategoryRepository());
+  final landmarkRepository = Get.put(LandmarkRepository());
   RxList<CategoryModel> allCategories = <CategoryModel>[].obs;
   RxList<CategoryModel> featuredCategories = <CategoryModel>[].obs;
 
@@ -39,6 +43,14 @@ class CategoryController extends GetxController {
   }
 
   ///Load selected category data
-
   ///Get Category or Sub-Category Products
+  Future<List<LandmarkModel>> getCategoryLandmarks({required String categoryId, int limit = 4}) async{
+    try{
+      final landmarks = await landmarkRepository.getLandmarksForCategory(categoryId: categoryId, limit: limit);
+      return landmarks;
+    }catch (e){
+      EELoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      return [];
+    }
+  }
 }

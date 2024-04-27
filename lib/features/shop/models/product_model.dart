@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:explore_ease/features/shop/models/product_attribute_model.dart';
 import 'Product_variation_model.dart';
-import 'brand_model.dart';
+import 'state_model.dart';
 
 class LandmarkModel {
   String id;
@@ -11,7 +11,7 @@ class LandmarkModel {
   double salePrice;
   String thumbnail;
   bool? isFeatured;
-  BrandModel? brand;
+  StateModel? brand;
   String? description;
   String? categoryId;
   List<String>? images;
@@ -72,11 +72,31 @@ class LandmarkModel {
     categoryId: data['CategoryId'] ?? '',
     description: data['Description'] ?? '',
     productType: data['ProductType'] ??'',
-    brand: BrandModel.fromJson(data['Brand']),
+    brand: StateModel.fromJson(data['Brand']),
     images: data['Images'] != null ? List<String>.from(data['Images']): [],
     productAttributes: (data['ProductAttributes'] as List<dynamic>).map((e) => ProductAttributeModel.fromJson(e)).toList(),
     productVariations: (data['Product Variations'] as List<dynamic>).map((e) => ProductVariationModel.fromJson(e)).toList(),
     ); // ProductModel
+  }
+
+  // Map Json-oriented document snapshot from Firebase to Model
+  factory LandmarkModel.fromQuerySnapshot (QueryDocumentSnapshot<Object?> document) {
+    final data = document.data() as Map<String, dynamic>;
+    return LandmarkModel(
+        id: document.id,
+        title: data['title'] ??'',
+        isFeatured: data['IsFeatured'] ?? false,
+        price: double.parse((data['Price'] ?? 0.0).toString()),
+        salePrice: double.parse((data['SalePrice'] ?? 0.0).toString()),
+        thumbnail: data['Thumbnail'] ?? "",
+        categoryId: data['CategoryId'] ?? '',
+        description: data['Description'] ?? '',
+        productType: data['ProductType'] ?? '',
+        brand: StateModel.fromJson(data['Brand']),
+        images: data['Images'] != null ? List<String>.from(data['Images']): [],
+        productAttributes: (data['ProductAttributes'] as List<dynamic>).map((e) => ProductAttributeModel.fromJson(e)).toList(),
+        productVariations: (data['ProductVariations'] as List<dynamic>).map((e) => ProductVariationModel.fromJson(e)).toList(),
+    );
   }
 
 }

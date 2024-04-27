@@ -37,6 +37,17 @@ class LandmarkController extends GetxController{
     }
   }
 
+ Future<List<LandmarkModel>> fetchAllFeaturedProducts() async{
+    try{
+      final landmarks = await landmarkRepository.getFeaturedLandmarks();
+      return landmarks;
+    }catch(e){
+      EELoaders.errorSnackBar(title: 'Oh Snap!' , message: e.toString());
+      return[];
+    }
+  }
+
+
   String getLandmarkPrice(LandmarkModel landmark) {
     double smallestPrice = double.infinity;
     double largestPrice = 0.0;

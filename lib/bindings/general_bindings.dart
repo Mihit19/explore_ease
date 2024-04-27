@@ -1,4 +1,4 @@
-import 'package:explore_ease/features/authentication/controllers/signup/network_manager.dart';
+import 'package:explore_ease/utils/helpers/network_manager.dart';
 import 'package:get/get.dart';
 
 class GeneralBindings extends Bindings{

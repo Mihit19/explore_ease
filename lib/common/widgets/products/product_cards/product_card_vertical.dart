@@ -52,19 +52,20 @@ class EEProductCardVertical extends StatelessWidget {
                    ),
 
                   /// discount tag
-                  Positioned(
-                      top: 12,
-                      child: EERoundedContainer(
-                        radius: EESizes.sm,
-                        backgroundColor: EEColors.secondary.withOpacity(0.8),
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: EESizes.sm, vertical: EESizes.xs),
-                        child: Text('$salePercentage%',
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelLarge!
-                                .apply(color: EEColors.black)),
-                      )),
+                  if(salePercentage != null)
+                    Positioned(
+                        top: 12,
+                        child: EERoundedContainer(
+                          radius: EESizes.sm,
+                          backgroundColor: EEColors.secondary.withOpacity(0.8),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: EESizes.sm, vertical: EESizes.xs),
+                          child: Text('$salePercentage%',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .labelLarge!
+                                  .apply(color: EEColors.black)),
+                        )),
 
                   /// favourite icon button
                   const Positioned(

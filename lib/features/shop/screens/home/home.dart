@@ -1,4 +1,4 @@
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:explore_ease/features/shop/screens/all_landmarks/all_landmarks.dart';
 import 'package:explore_ease/features/shop/screens/home/widgets/home_appbar.dart';
 import 'package:explore_ease/features/shop/screens/home/widgets/home_categories.dart';
@@ -59,7 +59,9 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: EESizes.spaceBtwSections,)
+                  SizedBox(
+                    height: EESizes.spaceBtwSections,
+                  )
                 ],
               ),
             ),
@@ -73,17 +75,30 @@ class HomeScreen extends StatelessWidget {
                     EEImage.banner3
                   ]),
                   const SizedBox(height: EESizes.spaceBtwItems),
-                  EESectionHeading(title: 'Popular Landmarks', onPressed: () => Get.to(()=> const AllLandmarks())),
+                  EESectionHeading(
+                      title: 'Popular Landmarks',
+                      onPressed: () => Get.to(() =>  AllLandmarks(
+                            title: 'Popular Landmarks',
+                        query: FirebaseFirestore.instance.collection('Products').where('IsFeatured', isEqualTo: true).limit(6),
+                        futureMethod: controller.fetchAllFeaturedProducts(),
+
+                          )
+                      )
+                  ),
                   const SizedBox(height: EESizes.spaceBtwItems),
                   Obx(() {
-                    if(controller.isLoading.value){
+                    if (controller.isLoading.value) {
                       return const EEVerticalProductShimmer();
                     }
-                    if(controller.featuredLandmarks.isEmpty){
-                      return Center(child: Text('No Data Found', style: Theme.of(context).textTheme.bodyMedium));
+                    if (controller.featuredLandmarks.isEmpty) {
+                      return Center(
+                          child: Text('No Data Found',
+                              style: Theme.of(context).textTheme.bodyMedium));
                     }
-                    return EEGridLayout(itemCount: controller.featuredLandmarks.length,itemBuilder: (_, index) => EEProductCardVertical(landmark: controller.featuredLandmarks[index])
-                    );
+                    return EEGridLayout(
+                        itemCount: controller.featuredLandmarks.length,
+                        itemBuilder: (_, index) => EEProductCardVertical(
+                            landmark: controller.featuredLandmarks[index]));
                   }),
                 ],
               ),
@@ -94,4 +109,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

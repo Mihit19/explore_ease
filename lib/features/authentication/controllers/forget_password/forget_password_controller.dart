@@ -6,7 +6,7 @@ import 'package:explore_ease/utils/popups/full_screen_loader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import '../signup/network_manager.dart';
+import '../../../../utils/helpers/network_manager.dart';
 
 class ForgetPasswordController extends GetxController{
   static ForgetPasswordController get instance => Get.find();

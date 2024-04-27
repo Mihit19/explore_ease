@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/user_model.dart';
-import 'network_manager.dart';
+import '../../../../utils/helpers/network_manager.dart';
 
 class SignupController extends GetxController {
   static SignupController get instance => Get.find();

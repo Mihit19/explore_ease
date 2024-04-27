@@ -11,7 +11,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import '../../authentication/controllers/signup/network_manager.dart';
+import '../../../utils/helpers/network_manager.dart';
 import '../../authentication/models/user_model.dart';
 
 class UserController extends GetxController {

@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/popups/full_screen_loader.dart';
-import '../../authentication/controllers/signup/network_manager.dart';
+import '../../../utils/helpers/network_manager.dart';
 
 class UpdateNameController extends GetxController {
   static UpdateNameController get instance => Get.find();
