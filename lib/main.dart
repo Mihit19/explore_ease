@@ -1,6 +1,4 @@
 import 'package:explore_ease/data/repositories/categories/category_repository.dart';
-import 'package:explore_ease/features/shop/controllers/category_controller.dart';
-import 'package:explore_ease/features/shop/models/category_model.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';

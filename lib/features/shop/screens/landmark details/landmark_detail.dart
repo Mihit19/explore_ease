@@ -5,6 +5,7 @@ import 'package:explore_ease/features/shop/screens/landmark%20details/widgets/pr
 import 'package:explore_ease/features/shop/screens/landmark%20details/widgets/landmark_image_slider.dart';
 import 'package:explore_ease/features/shop/screens/landmark%20details/widgets/landmark_meta_data.dart';
 import 'package:explore_ease/features/shop/screens/landmark%20details/widgets/rating_share.dart';
+import 'package:explore_ease/utils/constants/enums.dart';
 import 'package:explore_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,7 +29,7 @@ class LandmarkDetailScreen extends StatelessWidget {
         child: Column(
           children: [
             ///landmark image slider
-            const EELandmarkImageSlider(),
+             EELandmarkImageSlider(landmark: landmark),
 
             ///landmark details
             Padding(
@@ -40,27 +41,25 @@ class LandmarkDetailScreen extends StatelessWidget {
                   const EERatingAndShare(),
 
                   /// price,title,state
-                  const EELandmarkMetaData(),
+                   EELandmarkMetaData(landmark: landmark,),
                   const SizedBox(height: EESizes.spaceBtwItems/3),
                   /// attributes
-                  const EELandmarkAttributes(),
-                  const SizedBox(height: EESizes.spaceBtwSections/2),
+                  if(landmark.productType == ProductType.variable.toString()) EELandmarkAttributes(landmark: landmark),
+                  if(landmark.productType == ProductType.variable.toString()) const SizedBox(height: EESizes.spaceBtwSections/2),
                   /// checkout button
                   SizedBox(width: double.infinity, child: ElevatedButton(onPressed: (){}, child: const Text('Check Total'))),
                   const SizedBox(height: EESizes.spaceBtwSections),
                   /// description
                   const EESectionHeading(title: 'Description', showActionButton: false,),
                   const SizedBox(height: EESizes.spaceBtwItems),
-                  const ReadMoreText(
-                      '''Facilities: Parking , Bar , Wifi , Pool , Food 
-                      
-Located in the tranquil Benaulim, Goa, overlooking the Arabian Sea, Taj Exotica Resort & Spa offers a laid-back, luxury experience. The resort boasts lush greenery spread over 56 acres, featuring deluxe suites and villa rooms with old-world charm. It"s an ideal destination for romantic getaways or family vacations. The resort's 4,600 square feet Ballroom caters to social events and destination weddings. Indulge in diverse cuisines, relax by the pool, and enjoy rejuvenating therapies at J Wellness Circle. For the adventurous, water sports and various sports activities are available. Let the attentive staff pamper you while exploring Goa's historic sites and attractions.''',
+                  ReadMoreText(
+                      landmark.description ?? '',
                       trimLines: 3,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: ' Show more',
                     trimExpandedText: ' Less',
-                    moreStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-                    lessStyle: TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    moreStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    lessStyle: const TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
                   ),
 
                   /// reviews

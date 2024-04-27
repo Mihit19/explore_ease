@@ -14,9 +14,10 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Scaffold(
       appBar: EEAppBar(
-        title: Text('WishList', style: Theme.of(context).textTheme.headlineMedium),
+        title: Text('WishList', style: theme.textTheme.headlineMedium),
         actions: [
           EECircularIcon(icon: Iconsax.add, onPressed: () => Get.to(const HomeScreen()),)
           ]

@@ -2,8 +2,9 @@ import 'package:explore_ease/common/widgets/images/EE_circular_image.dart';
 import 'package:explore_ease/common/widgets/texts/brand_title_verified_icon.dart';
 import 'package:explore_ease/common/widgets/texts/landmark_price_text.dart';
 import 'package:explore_ease/common/widgets/texts/product_title_text.dart';
+import 'package:explore_ease/features/shop/controllers/landmark_controller.dart';
+import 'package:explore_ease/features/shop/models/product_model.dart';
 import 'package:explore_ease/utils/constants/enums.dart';
-import 'package:explore_ease/utils/constants/image_strings.dart';
 import 'package:explore_ease/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +13,14 @@ import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class EELandmarkMetaData extends StatelessWidget {
-  const EELandmarkMetaData({super.key});
+  const EELandmarkMetaData({super.key, required this.landmark});
+
+  final LandmarkModel landmark;
 
   @override
   Widget build(BuildContext context) {
+    final controller = LandmarkController.instance;
+    final salePercentage = controller.calculateSalePercentage(landmark.price, landmark.salePrice);
     final dark = EEHelperFunctions.isDarkMode(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,31 +33,32 @@ class EELandmarkMetaData extends StatelessWidget {
               radius: EESizes.sm,
               backgroundColor: EEColors.secondary.withOpacity(0.8),
               padding: const EdgeInsets.symmetric(horizontal: EESizes.sm, vertical: EESizes.xs),
-              child: Text('25%', style: Theme.of(context).textTheme.labelLarge!.apply(color: EEColors.black)),
+              child: Text('$salePercentage%', style: Theme.of(context).textTheme.labelLarge!.apply(color: EEColors.black)),
             ),
             const SizedBox(width: EESizes.spaceBtwItems),
             ///price
-            Text('\u{20B9}5,000-10,000', style: Theme.of(context).textTheme.bodyMedium!.apply(decoration: TextDecoration.lineThrough)),
-            const SizedBox(width: EESizes.spaceBtwItems),
-            const EELandmarkPriceText(price: '3,750 - 7,500', isLarge: true),
+            if(landmark.productType ==ProductType.single.toString() && landmark.salePrice >0)
+              Text('\u{20B9}${landmark.price}', style: Theme.of(context).textTheme.bodyMedium!.apply(decoration: TextDecoration.lineThrough)),
+            if(landmark.productType ==ProductType.single.toString() && landmark.salePrice >0) const SizedBox(width: EESizes.spaceBtwItems),
+             EELandmarkPriceText(price: controller.getLandmarkPrice(landmark), isLarge: true),
           ],
         ),
         const SizedBox(height: EESizes.spaceBtwItems/1.5),
         ///title
-        const EEProductTitleText(title: 'Taj Exotica Resort & Spa'),
+         EEProductTitleText(title: landmark.title),
         const SizedBox(height: EESizes.spaceBtwItems/2.5),
         /// state
         Row(
           children: [
             EECircularImage(
-                image: EEImage.tajIcon,
+                image: landmark.brand != null ? landmark.brand!.image:'',
               width: 32,
               height: 32,
               overlayColor: dark ? EEColors.white: EEColors.black,
             ),
             const SizedBox(width: EESizes.spaceBtwItems/3),
 
-            const EEBrandTitleVerifiedIcon(title: 'Goa', brandTextSize: TextSizes.medium,),
+             EEBrandTitleVerifiedIcon(title: landmark.brand != null ? landmark.brand!.name:'', brandTextSize: TextSizes.medium),
           ],
         )
       ],
