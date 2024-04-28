@@ -1,12 +1,22 @@
 import 'package:get_storage/get_storage.dart';
 class EELocalStorage {
-  static final EELocalStorage _instance = EELocalStorage. _internal();
-  factory EELocalStorage () {
-    return _instance;
+
+  static EELocalStorage? _instance;
+  late final GetStorage storage;
+  EELocalStorage._internal();
+
+
+  factory EELocalStorage.instance() {
+    _instance ??= EELocalStorage._internal();
+    return _instance!;
   }
 
-  EELocalStorage._internal();
-  final storage = GetStorage();
+  static Future<void> init(String bucketName) async {
+    await GetStorage.init(bucketName);
+    _instance = EELocalStorage._internal();
+    _instance!.storage = GetStorage(bucketName);
+  }
+
 
 // Generic method to save data
   Future<void> saveData<T>(String key, T value) async {
@@ -27,9 +37,3 @@ class EELocalStorage {
     await storage.erase();
   }
 }
-
-
-/// *** *** *** *** *** Example *** *** *** *** *** ///
-// LocalStorage localStorage = LocalStorage ();
-//
-// // Save data

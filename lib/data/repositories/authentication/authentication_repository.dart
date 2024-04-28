@@ -3,6 +3,7 @@ import 'package:explore_ease/features/authentication/screens/login/login.dart';
 import 'package:explore_ease/features/authentication/screens/onboarding/onboarding.dart';
 import 'package:explore_ease/features/authentication/screens/signup/verify_email.dart';
 import 'package:explore_ease/navigation_menu.dart';
+import 'package:explore_ease/utils/local_storage/storage_utility.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -28,10 +29,11 @@ class AuthenticationRepository extends GetxController {
   }
 
   ///Function to show relevant Screen
-  screenRedirect() async {
+  void screenRedirect() async {
     final user =_auth.currentUser;
     if(user !=null){
       if(user.emailVerified){
+        await EELocalStorage.init(user.uid);
         Get.offAll(() => const NavigationMenu());
       }else{
         Get.offAll(() => VerifyEmailScreen(email: _auth.currentUser?.email));

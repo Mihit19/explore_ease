@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:explore_ease/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:explore_ease/features/shop/controllers/Image_controller.dart';
 import 'package:explore_ease/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -89,11 +90,9 @@ class EELandmarkImageSlider extends StatelessWidget {
             ),
 
             /// Appbar Icons
-            const EEAppBar(
+             EEAppBar(
               showBackArrow: true,
-              actions: [
-                EECircularIcon(icon: Iconsax.heart5,color: Colors.red)
-              ],
+              actions: [EEFavouriteIcon(landmarkId: landmark.id)],
             )
           ],
         ),

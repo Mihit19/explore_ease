@@ -1,6 +1,7 @@
 import 'package:explore_ease/common/styles/shadows.dart';
 import 'package:explore_ease/common/widgets/custom_shape/container/rounded_container.dart';
 import 'package:explore_ease/common/widgets/images/EE_rounded_image.dart';
+import 'package:explore_ease/common/widgets/products/favourite_icon/favourite_icon.dart';
 import 'package:explore_ease/features/shop/controllers/landmark_controller.dart';
 import 'package:explore_ease/features/shop/models/product_model.dart';
 import 'package:explore_ease/features/shop/screens/landmark%20details/landmark_detail.dart';
@@ -15,6 +16,7 @@ import '../../icons/EE_circular_icon.dart';
 import '../../texts/brand_title_verified_icon.dart';
 import '../../texts/landmark_price_text.dart';
 import '../../texts/product_title_text.dart';
+import 'add_to_cart_button.dart';
 
 class EEProductCardVertical extends StatelessWidget {
   const EEProductCardVertical({super.key, required this.landmark});
@@ -68,13 +70,10 @@ class EEProductCardVertical extends StatelessWidget {
                         )),
 
                   /// favourite icon button
-                  const Positioned(
+                  Positioned(
                       top: 0,
                       right: 0,
-                      child: EECircularIcon(
-                        icon: Iconsax.heart5,
-                        color: Colors.red,
-                      )),
+                      child: EEFavouriteIcon(landmarkId: landmark.id),)
                 ],
               ),
             ),
@@ -102,9 +101,6 @@ class EEProductCardVertical extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-
-                
-
                 Flexible(
                   child: Column(
                     children: [
@@ -127,20 +123,9 @@ class EEProductCardVertical extends StatelessWidget {
                     ],
                   ),
                 ),
-                Container(
-                  decoration: const BoxDecoration(
-                    color: EEColors.dark,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(EESizes.cardRadiusMd),
-                      bottomRight: Radius.circular(EESizes.landmarkImageRadius),
-                    ),
-                  ),
-                  child: const SizedBox(
-                      width: EESizes.iconLg * 1.2,
-                      height: EESizes.iconLg * 1.2,
-                      child: Center(
-                          child: Icon(Iconsax.add, color: EEColors.white))),
-                )
+
+                ///Add to cart
+                ProductCardAddToCartButton(landmark: landmark)
               ],
             )
           ],
@@ -149,3 +134,4 @@ class EEProductCardVertical extends StatelessWidget {
     );
   }
 }
+

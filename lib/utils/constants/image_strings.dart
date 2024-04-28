@@ -67,4 +67,8 @@ class EEImage{
 
   //brands
   static const String tajIcon = 'assets/images/brands/tajIcon.png';
+
+  //in app animations
+  static const String emptyWishlist = 'assets/images/inappanimations/Animation - 1714282609135.json';
+
 }

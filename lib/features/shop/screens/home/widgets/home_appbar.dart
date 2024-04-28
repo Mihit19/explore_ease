@@ -29,8 +29,8 @@ class EEHomeAppBar extends StatelessWidget {
         }),
       ],
     ),
-      actions: [
-        EECartCounterIcon(onPressed: (){}, iconColor: EEColors.white,counterBgColor: EEColors.black,counterTextColor: EEColors.white)
+      actions: const [
+        EECartCounterIcon(iconColor: EEColors.white,counterBgColor: EEColors.black,counterTextColor: EEColors.white)
       ],
     );
   }

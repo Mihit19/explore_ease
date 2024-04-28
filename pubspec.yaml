@@ -70,6 +70,7 @@ flutter:
     - assets/images/brands/
     - assets/images/user/
     - assets/images/reviewers/
+    - assets/images/inappanimations/
 
   #--------------------LOCAL ASSETS-----------------------#
   fonts:

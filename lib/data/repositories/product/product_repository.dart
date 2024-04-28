@@ -62,6 +62,19 @@ class LandmarkRepository extends GetxController {
     }
   }
 
+  Future<List<LandmarkModel>> getFavouriteLandmarks(List<String> landmarkIds) async {
+    try {
+      final snapshot = await _db.collection('Products').where(FieldPath.documentId, whereIn: landmarkIds).get();
+      return snapshot.docs.map((querySnapshot) => LandmarkModel.fromSnapshot(querySnapshot)).toList();
+    } on FirebaseException catch (e) {
+      throw FirebaseException(plugin: e.code, message: 'No app Exists');
+    } on PlatformException catch (e) {
+      throw PlatformException(code: e.code);
+    } catch (e) {
+      throw 'Something went wrong, Please try again';
+    }
+  }
+
   Future<List<LandmarkModel>> getLandmarksForStates(
       {required String stateId, int limit = -1}) async {
     try {
