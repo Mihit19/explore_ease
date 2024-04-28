@@ -49,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                         /// Heading
                         EESectionHeading(
                           title: 'Popular Categories',
-                          showActionButton: true,
+                          showActionButton: false,
                           textColor: Colors.white,
                         ),
                         SizedBox(height: EESizes.spaceBtwItems),

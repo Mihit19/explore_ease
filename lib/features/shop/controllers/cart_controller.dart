@@ -17,7 +17,7 @@ class CartController extends GetxController {
   RxList<CartItemModel> cartItems = <CartItemModel>[].obs;
   final variationController = VariationController.instance;
 
-  CartController(){
+  CartController() {
     loadCartItems();
   }
 
@@ -52,8 +52,10 @@ class CartController extends GetxController {
     EELoaders.customToast(message: 'Your landmark has been added to the cart');
   }
 
-  void addOneToCart (CartItemModel item) {
-    int index = cartItems.indexWhere((cartItem) => cartItem.productId == item.productId && cartItem.variationId==item.variationId);
+  void addOneToCart(CartItemModel item) {
+    int index = cartItems.indexWhere((cartItem) =>
+    cartItem.productId == item.productId &&
+        cartItem.variationId == item.variationId);
     if (index > 0) {
       cartItems[index].quantity += 1;
     } else {
@@ -62,32 +64,34 @@ class CartController extends GetxController {
     updateCart();
   }
 
-  void removeOneFromCart (CartItemModel item) {
-    int index = cartItems.indexWhere((cartItem) => cartItem
-        .productId == item.productId && cartItem.variationId == item.variationId);
+  void removeOneFromCart(CartItemModel item) {
+    int index = cartItems.indexWhere((cartItem) =>
+    cartItem
+        .productId == item.productId &&
+        cartItem.variationId == item.variationId);
     if (index > 0) {
       if (cartItems[index].quantity > 1) {
         cartItems[index].quantity -= 1;
       } else {
 // Show dialog before completely removing
-        cartItems[index].quantity==1 ? removeFromCartDialog(index):cartItems
+        cartItems[index].quantity == 1 ? removeFromCartDialog(index) : cartItems
             .removeAt(index);
       }
       updateCart();
     }
   }
 
-  void removeFromCartDialog(int index){
+  void removeFromCartDialog(int index) {
     Get.defaultDialog(
-      title: 'Remove Landmark',
-      middleText: 'Are you sure  you want to remove this landmark',
-      onConfirm: (){
-        cartItems.removeAt(index);
-        updateCart();
-        EELoaders.customToast(message: 'Landmark removed from the cart.');
-        Get.back();
-      },
-      onCancel: () => () => Get.back()
+        title: 'Remove Landmark',
+        middleText: 'Are you sure  you want to remove this landmark',
+        onConfirm: () {
+          cartItems.removeAt(index);
+          updateCart();
+          EELoaders.customToast(message: 'Landmark removed from the cart.');
+          Get.back();
+        },
+        onCancel: () => () => Get.back()
     );
   }
 
@@ -135,36 +139,56 @@ class CartController extends GetxController {
     noOfCartItems.value = calculatedNoOfItems;
   }
 
-  void saveCartItems(){
+  void saveCartItems() {
     final cartItemStrings = cartItems.map((item) => item.toJson()).toList();
     EELocalStorage.instance().saveData('cartItems', cartItemStrings);
   }
 
-  void loadCartItems(){
-    final cartItemStrings = EELocalStorage.instance().readData<List<dynamic>>('cartItems');
-    if (cartItemStrings !=null){
-      cartItems.assignAll(cartItemStrings.map((item) => CartItemModel.fromJson(item as Map<String,dynamic>)));
+  void loadCartItems() {
+    final cartItemStrings = EELocalStorage.instance().readData<List<dynamic>>(
+        'cartItems');
+    if (cartItemStrings != null) {
+      cartItems.assignAll(cartItemStrings.map((item) =>
+          CartItemModel.fromJson(item as Map<String, dynamic>)));
       updateCartTotal();
     }
   }
 
-  int getProductQuantityInCart(String productId){
+  int getProductQuantityInCart(String productId) {
     final foundItem =
-        cartItems.where((item) => item.productId == productId).fold(0, (previousValue, element) => previousValue+element.quantity);
+    cartItems.where((item) => item.productId == productId).fold(
+        0, (previousValue, element) => previousValue + element.quantity);
     return foundItem;
   }
 
-  int getVariationQuantityInCart(String productId,String variationId){
-    final foundItem = cartItems.firstWhere((item) => item.productId==productId && item.variationId == variationId,
-    orElse: () => CartItemModel.empty()
+  int getVariationQuantityInCart(String productId, String variationId) {
+    final foundItem = cartItems.firstWhere((item) =>
+    item.productId == productId && item.variationId == variationId,
+        orElse: () => CartItemModel.empty()
     );
 
     return foundItem.quantity;
   }
 
-  void clearCart(){
-    productQuantityInCart.value=0;
+  void clearCart() {
+    productQuantityInCart.value = 0;
     cartItems.clear();
     updateCart();
+  }
+
+  // Initialize already added Item's Count in the cart.
+  void updateAlreadyAddedProductCount(LandmarkModel landmark) {
+    if (landmark.productType == ProductType.single.toString()) {
+      productQuantityInCart.value = getProductQuantityInCart(landmark.id);
+    } else {
+// Get selected Variation if any...
+      final variationId = variationController.selectedVariation.value.id;
+      if (variationId.isNotEmpty) {
+        productQuantityInCart.value =
+            getVariationQuantityInCart(landmark.id, variationId);
+      } else {
+        productQuantityInCart.value = 0;
+      }
+    }
   }
 }

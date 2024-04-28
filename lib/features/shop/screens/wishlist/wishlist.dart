@@ -9,7 +9,6 @@ import 'package:explore_ease/navigation_menu.dart';
 import 'package:explore_ease/utils/constants/image_strings.dart';
 import 'package:explore_ease/utils/helpers/cloud_helper_function.dart';
 import 'package:explore_ease/utils/shimmer/vertical_product_shimmer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -21,7 +20,7 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = FavouriteController.instance;
+    final controller = Get.put(FavouriteController());
     final theme = Theme.of(context);
     return Scaffold(
       appBar: EEAppBar(

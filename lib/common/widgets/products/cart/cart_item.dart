@@ -1,3 +1,4 @@
+import 'package:explore_ease/features/shop/models/cart_item_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/colors.dart';
@@ -10,17 +11,18 @@ import '../../texts/product_title_text.dart';
 
 class EECartItem extends StatelessWidget {
   const EECartItem({
-    super.key,
+    super.key, required this.cartItem,
   });
+  final CartItemModel cartItem;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-
         ///Image
         EERoundedImage(
-          imageUrl: EEImage.landmark1,
+          isNetworkImage: true,
+          imageUrl: cartItem.image ?? '',
           width: 60,
           height: 60,
           padding: const EdgeInsets.all(EESizes.sm),
@@ -35,22 +37,20 @@ class EECartItem extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const EEBrandTitleVerifiedIcon(title: 'Goa'),
-              const Flexible(
+               EEBrandTitleVerifiedIcon(title: cartItem.brandName?? ''),
+               Flexible(
                 child: EEProductTitleText(
-                    title: 'Taj Exotica Resort & spa',
+                    title: cartItem.title,
                     maxLine: 1),
               ),
 
               ///Attributes
               Text.rich(
                   TextSpan(
-                      children: [
-                        TextSpan(text: 'Room', style: Theme.of(context).textTheme.bodySmall),
-                        TextSpan(text: 'Suite', style: Theme.of(context).textTheme.bodyLarge),
-                        TextSpan(text: 'View', style: Theme.of(context).textTheme.bodySmall),
-                        TextSpan(text: 'Pool View', style: Theme.of(context).textTheme.bodyLarge),
-                      ]
+                      children: (cartItem.selectedVariation ?? {}).entries.map((e) => TextSpan(children: [
+                        TextSpan(text: e.key,style: Theme.of(context).textTheme.bodySmall),
+                        TextSpan(text: e.value,style: Theme.of(context).textTheme.bodySmall),
+                      ])).toList()
 
                   )
               )

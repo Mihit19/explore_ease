@@ -24,7 +24,7 @@ class LandmarkDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      bottomNavigationBar: const EEBottomAddToCart(),
+      bottomNavigationBar: EEBottomAddToCart(landmark: landmark),
       body: SingleChildScrollView(
         child: Column(
           children: [
