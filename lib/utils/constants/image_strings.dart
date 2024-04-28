@@ -71,5 +71,6 @@ class EEImage{
   //in app animations
   static const String emptyWishlist = 'assets/images/inappanimations/Animation - 1714282609135.json';
   static const String emptyCart = 'assets/images/inappanimations/Animation - 1714312805260.json';
+  static const String itinerarySaved = 'assets/images/inappanimations/Animation - 1714322016180.json';
 
 }

@@ -1,15 +1,14 @@
 import 'package:explore_ease/common/widgets/appbar/appbar.dart';
 import 'package:explore_ease/common/widgets/loader/animation_loader.dart';
-import 'package:explore_ease/common/widgets/texts/landmark_price_text.dart';
+import 'package:explore_ease/common/widgets/loader/loader.dart';
 import 'package:explore_ease/features/shop/controllers/cart_controller.dart';
+import 'package:explore_ease/features/shop/controllers/itinerary_controller.dart';
 import 'package:explore_ease/features/shop/screens/itineraries/itinerary.dart';
 import 'package:explore_ease/navigation_menu.dart';
 import 'package:explore_ease/utils/constants/image_strings.dart';
 import 'package:explore_ease/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
-import '../../../../common/widgets/products/cart/add_remove_button.dart';
 import '../../../../common/widgets/products/cart/cart_Items.dart';
-import '../../../../common/widgets/products/cart/cart_item.dart';
 import 'package:get/get.dart';
 
 class CartScreen extends StatelessWidget {
@@ -17,7 +16,9 @@ class CartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final itineraryController = Get.put(ItineraryController());
     final controller = CartController.instance;
+    final double totalPrice = controller.totalCartPrice.value;
     return Scaffold(
       appBar: EEAppBar(
           showBackArrow: true,
@@ -49,9 +50,13 @@ class CartScreen extends StatelessWidget {
           : Padding(
               padding: const EdgeInsets.all(EESizes.defaultSpace),
               child: ElevatedButton(
-                  onPressed: () => Get.to(() => const ItineraryScreen()),
-                  child: Obx(() => Text(
-                      'Save \u{20B9}${controller.totalCartPrice.value}')))),
+                  onPressed: totalPrice > 0.0
+                      ? () => itineraryController.processOrder(totalPrice)
+                      : () => EELoaders.errorSnackBar(
+                          title: 'Empty Cart',
+                          message:
+                              'Add landmarks in the cart in order to proceed'),
+                  child: Obx(() => Text('Save \u{20B9}$totalPrice')))),
     );
   }
 }
