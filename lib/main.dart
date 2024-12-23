@@ -16,7 +16,7 @@ Future<void> main() async {
   /// Getx local storage
   await GetStorage.init();
   // Await Native Splash
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  //FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   /// Initialize firebase
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

@@ -43,7 +43,7 @@ class EECircularImage extends StatelessWidget {
           child: isNetworkImage ? CachedNetworkImage(
             fit: fit,
             color: overlayColor,
-            imageUrl: image,
+            imageUrl: image,  
             progressIndicatorBuilder: (context, url, downloadProgress) => const EEShimmerEffect(width: 55, height: 55, radius: 55),
             errorWidget: (context, url, error) => const Icon(Icons.error),
           )
